@@ -1,0 +1,39 @@
+<div class="login">
+    <div class="login__content">
+        <div class="login__img">
+            <img src="assets/img/img-login.svg" alt="">
+        </div>
+
+        <div class="login__forms">
+            <form action="/register" method="POST" autocomplete="off" class="login__registre">
+                <h1 class="login__title">
+                    <b>Inscrever-se</b>
+                </h1>
+
+                <?php if (isset($this->view->registrationError)) : ?>
+                    <small class="form-text text-danger">
+                        Erro ao Tentar Realizar o Cadastro!
+                    </small>
+                <?php elseif (isset($this->view->registeredError)) : ?>
+                    <small class="form-text text-danger">
+                        Este Usuario ja Existe!
+                    </small>
+                <?php endif; ?>
+
+                <div class="login__box">
+                    <i class='bx bx-user login__icon'></i>
+                    <input type="text" name="nome" placeholder="Nome de Usuario" value="<?= isset($this->view->usuario["nome"]) ?  $this->view->usuario["nome"] : "" ?>" class="login__input">
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-lock-alt login__icon'></i>
+                    <input type="password" name="senha" placeholder="Senha do Usuario" value="<?= isset($this->view->usuario["senha"]) ?  $this->view->usuario["senha"] : "" ?>" class="login__input">
+                </div>
+
+                <br>
+
+                <button type="submit" class="btn btn-lg btn-success">cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -11,22 +11,40 @@ class Route extends Bootstrap
         /**
          * IndexController Routes
          */
-        $routes["login"] = array(
+        $routes["Login"] = array(
             "route" => "/",
             "controller" => "indexController",
             "action" => "index"
         );
 
-        $routes["singUp"] = array(
-            "route" => "/singUp",
+        $routes["SignUp"] = array(
+            "route" => "/signUp",
             "controller" => "indexController",
-            "action" => "singUp"
+            "action" => "signUp"
         );
 
-        $routes["register"] = array(
+        $routes["Register"] = array(
             "route" => "/register",
             "controller" => "indexController",
             "action" => "register"
+        );
+
+        /**
+         * AuthController Routes
+         */
+        $routes["Auth"] = array(
+            "route" => "/auth",
+            "controller" => "AuthController",
+            "action" => "Auth"
+        );
+
+        /**
+         * AppController Routes
+         */
+        $routes["Store"] = array(
+            "route" => "/store",
+            "controller" => "AppController",
+            "action" => "Store"
         );
 
         $this->setRoutes($routes);

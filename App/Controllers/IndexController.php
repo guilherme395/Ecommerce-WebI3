@@ -9,21 +9,40 @@ class IndexController extends Action
 {
     public function index()
     {
-        $this->view->login = isset($_GET["auth"]) ? $_GET["auth"] : "";
         $this->render("index");
     }
 
-    public function singUp()
+    public function signUp()
     {
-        $this->render("singUp");
+        $this->render("signUp");
     }
 
     public function register()
     {
-        $data = $_POST;
+        $user = Container::getModel("Usuario");
 
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
+        $user->__set("nome", $_POST["nome"]);
+        $user->__set("senha", $_POST["senha"]);
+
+        if ($user->validateRegistration() === true) :
+            if (count($user->getUserByNome()) == 0) :
+                $user->saveUser();
+                header("Location: /");
+            else :
+                $this->view->usuario = [
+                    "nome" => $_POST["nome"],
+                    "senha" => $_POST["senha"]
+                ];
+                $this->view->registeredError = true;
+                $this->render("signUp");
+            endif;
+        else :
+            $this->view->usuario = [
+                "nome" => $_POST["nome"],
+                "senha" => $_POST["senha"]
+            ];
+            $this->view->registrationError = true;
+            $this->render("signUp");
+        endif;
     }
 }
