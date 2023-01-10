@@ -17,7 +17,7 @@ class AuthController extends Action
 
         if (!empty($user->__get("id"))) :
             session_start();
-            
+
             $_SESSION["id"] = $user->__get("id");
             $_SESSION["nome"] = $user->__get("nome");
 
@@ -25,5 +25,12 @@ class AuthController extends Action
         else :
             header("Location: /?auth=authenticationFailed");
         endif;
+    }
+
+    public function Leave()
+    {
+        session_start();
+        session_destroy();
+        header("Location: /");
     }
 }

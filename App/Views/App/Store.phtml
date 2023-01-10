@@ -1,1 +1,28 @@
-<h1>Loja Virtual</h1>
+<div style="padding-top: 20px;"></div>
+<div class="row">
+    <?php foreach ($this->view->products as $key => $products) : ?>
+        <div class="col-lg-4 div_space">
+            <div class="card card-margin">
+                <div class="card-header no-border">
+                    <h4 class="card-title"><?= $products["produto"] ?></h4>
+                </div>
+                <div class="card-body pt-2">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper pb-4">
+                            <div class="widget-49-date-success">
+                                <img src="<?= $products["path_arquivo"] ?>" class="card-img-top" height="200" width="200">
+                            </div>
+                        </div>
+                        <p><?= $products["descricao"] ?></p>
+
+                        <h4>R$<?= number_format($products["preco_venda"], 2, ",", ".") ?></h4>
+
+                        <div class="widget-49-meeting-action">
+                            <a class="btn btn-success" href="">SALVAR NO CARRINHO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>

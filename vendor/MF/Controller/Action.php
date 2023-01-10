@@ -11,14 +11,12 @@ abstract class Action
         $this->view = new \stdClass();
     }
 
-    protected function render($view, $layout = "layout")
+    protected function render($view, $layout = "default")
     {
         $this->view->page = $view;
 
         if (file_exists("../App/Views/Layouts/{$layout}.phtml")) :
             require_once "../App/Views/Layouts/{$layout}.phtml";
-        else :
-            $this->content();
         endif;
     }
 

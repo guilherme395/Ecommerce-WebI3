@@ -9,12 +9,12 @@ class IndexController extends Action
 {
     public function index()
     {
-        $this->render("index");
+        $this->render("index", "login");
     }
 
     public function signUp()
     {
-        $this->render("signUp");
+        $this->render("signUp", "login");
     }
 
     public function register()

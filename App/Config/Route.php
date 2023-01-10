@@ -38,6 +38,12 @@ class Route extends Bootstrap
             "action" => "Auth"
         );
 
+        $routes["Leave"] = array(
+            "route" => "/leave",
+            "controller" => "AuthController",
+            "action" => "Leave"
+        );
+
         /**
          * AppController Routes
          */
@@ -45,6 +51,12 @@ class Route extends Bootstrap
             "route" => "/store",
             "controller" => "AppController",
             "action" => "Store"
+        );
+
+        $routes["productRegistration"] = array(
+            "route" => "/productRegistration",
+            "controller" => "AppController",
+            "action" => "productRegistration"
         );
 
         $this->setRoutes($routes);

@@ -10,6 +10,10 @@
                     <b>Entrar</b>
                 </h1>
 
+                <?php if (isset($_GET["auth"])) : ?>
+                    <span class="text text-danger">E-mail e ou Senha Inválido(s)</span>
+                <?php endif; ?>
+
                 <div class="login__box">
                     <i class='bx bx-user login__icon'></i>
                     <input type="text" name="nome" placeholder="Nome de Usuario" class="login__input">
