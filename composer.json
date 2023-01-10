@@ -1,0 +1,21 @@
+{
+    "name": "guil/hmini-framework",
+    "require": {
+        "php": ">= 7.4"
+    },
+    "authors": [
+        {
+            "name": "Guilherme Lima Leite",
+            "email": "guilhermelimaleite06@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "MF\\": "vendor/MF/"
+        }
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t public/"
+    }
+}
