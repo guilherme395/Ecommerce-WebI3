@@ -2,15 +2,13 @@
 
 namespace MF\Model;
 
-use App\Models\Connection\Db;
+use App\Config\Connection\Db;
 
 class Container
 {
     public static function getModel($model)
     {
         $class = "App\\Models\\" . ucfirst($model);
-        $conn = Db::getDb();
-        
-        return new $class($conn);
+        return new $class(Db::getDb());
     }
 }
