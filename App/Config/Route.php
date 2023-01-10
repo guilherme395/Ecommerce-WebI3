@@ -11,10 +11,22 @@ class Route extends Bootstrap
         /**
          * IndexController Routes
          */
-        $routes["home"] = array(
+        $routes["login"] = array(
             "route" => "/",
             "controller" => "indexController",
             "action" => "index"
+        );
+
+        $routes["singUp"] = array(
+            "route" => "/singUp",
+            "controller" => "indexController",
+            "action" => "singUp"
+        );
+
+        $routes["register"] = array(
+            "route" => "/register",
+            "controller" => "indexController",
+            "action" => "register"
         );
 
         $this->setRoutes($routes);
