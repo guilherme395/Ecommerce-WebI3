@@ -22,31 +22,21 @@ class Usuario extends Model
 
     public function saveUser()
     {
-        $query = "INSERT INTO usuarios(nome, senha) VALUES (:nome,:senha);";
+        $cadUser["nome"]  = $this->__get("nome");
+        $cadUser["senha"] = $this->__get("senha");
 
-        $stmt = $this->db->prepare($query);
-        $stmt->bindValue(":nome", $this->__get("nome"));
-        $stmt->bindValue(":senha", md5($this->__get("senha")));
-
-        $stmt->execute();
+        $this->create->ExeCreate("usuarios", $cadUser);
         return $this;
     }
 
     public function Auth()
     {
-        $query = "SELECT id, nome FROM usuarios WHERE nome = :nome AND senha = :senha;";
-
-        $stmt = $this->db->prepare($query);
-        $stmt->bindValue(":nome", $this->__get("nome"));
-        $stmt->bindValue(":senha", $this->__get("senha"));
-        $stmt->execute();
-
-        $user = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $this->read->ExeRead("usuarios", "WHERE nome = :nome AND senha = :senha;", "nome={$this->__get("nome")}&senha={$this->__get("senha")}");
+        $user = $this->read->getResult()[0];
 
         if (isset($user["id"])) :
             $this->__set("id", $user["id"]);
         endif;
-
         return $this;
     }
 

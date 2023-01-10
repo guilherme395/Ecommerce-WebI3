@@ -24,38 +24,22 @@ class Produto extends Model
 
     public function saveProduct()
     {
-        $query = "INSERT INTO produtos(
-            produto,
-            descricao,
-            preco_custo,
-            preco_venda,
-            path_arquivo
-        )VALUES(
-            :produto,
-            :descricao,
-            :preco_custo,
-            :preco_venda,
-            :path_arquivo
-        )";
-        $stmt = $this->db->prepare($query);
+        $cadPr["produto"]      = $this->__get("produto");
+        $cadPr["descricao"]    = $this->__get("descricao");
+        $cadPr["preco_custo"]  = $this->__get("preco_custo");
+        $cadPr["preco_venda"]  = $this->__get("preco_venda");
+        $cadPr["path_arquivo"] = $this->__get("path_arquivo");
 
-        $stmt->bindValue(":produto", $this->__get("produto"));
-        $stmt->bindValue(":descricao", $this->__get("descricao"));
-        $stmt->bindValue(":preco_custo", $this->__get("preco_custo"));
-        $stmt->bindValue(":preco_venda", $this->__get("preco_venda"));
-        $stmt->bindValue(":path_arquivo", $this->__get("path_arquivo"));
-
-
-        $stmt->execute();
+        $this->create->ExeCreate("produtos", $cadPr);
         return $this;
     }
 
     public function getAllProducts()
     {
-        $query = "SELECT id, produto, descricao, preco_custo, preco_venda, path_arquivo FROM produtos ORDER BY id DESC;";
-        $stmt = $this->db->prepare($query);
+        $this->read->ExeRead("produtos", "ORDER BY id DESC");
 
-        $stmt->execute();
-        return $stmt->fetchall(\PDO::FETCH_ASSOC);
+        if ($this->read->getResult()) :
+            return $this->read->getResult();
+        endif;
     }
 }
