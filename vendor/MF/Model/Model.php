@@ -2,7 +2,7 @@
 
 namespace MF\Model;
 
-abstract class Model
+abstract class BootstrapModel
 {
     protected $create;
     protected $read;

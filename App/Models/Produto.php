@@ -4,7 +4,7 @@ namespace App\Models;
 
 use MF\Model\Model;
 
-class Produto extends Model
+class Produto extends BootstrapModel
 {
     private $id;
     private $produto;

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use MF\Model\Model;
 
-class Usuario extends Model
+class Usuario extends BootstrapModel
 {
     private $id;
     private $nome;
