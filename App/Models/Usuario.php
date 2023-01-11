@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use MF\Model\Model;
+use MF\Model\BootstrapModel;
 
 class Usuario extends BootstrapModel
 {

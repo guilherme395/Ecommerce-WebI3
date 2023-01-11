@@ -1,5 +1,5 @@
 {
-    "name": "Ecommerce-WebI3",
+    "name": "ecommerce/webi3",
     "require": {
         "php": ">= 7.4"
     },
@@ -14,6 +14,9 @@
             "App\\": "App/",
             "MF\\": "vendor/MF/"
         }
+    },
+    "config": {
+        "process-timeout": 0
     },
     "scripts": {
         "start": "php -S localhost:8080 -t public/"
