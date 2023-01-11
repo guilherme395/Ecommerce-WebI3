@@ -19,7 +19,7 @@ class AppController extends Action
     {
         $this->validateSession();
         $product = Container::getModel("Produto");
-        $this->view->products = $product->getAllProducts();
+        $this->load->products = $product->getAllProducts();
         $this->render("Store");
     }
 
@@ -45,5 +45,13 @@ class AppController extends Action
         else :
             header("Location: /store?ext=failed");
         endif;
+    }
+
+    public function productList()
+    {
+        $this->validateSession();
+        $product = Container::getModel("Produto");
+        $this->load->products = $product->getAllProducts();
+        $this->render("productList");
     }
 }

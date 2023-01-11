@@ -24,13 +24,13 @@ class Produto extends Model
 
     public function saveProduct()
     {
-        $cadPr["produto"]      = $this->__get("produto");
-        $cadPr["descricao"]    = $this->__get("descricao");
-        $cadPr["preco_custo"]  = $this->__get("preco_custo");
-        $cadPr["preco_venda"]  = $this->__get("preco_venda");
-        $cadPr["path_arquivo"] = $this->__get("path_arquivo");
+        $cadProduct["produto"]      = $this->__get("produto");
+        $cadProduct["descricao"]    = $this->__get("descricao");
+        $cadProduct["preco_custo"]  = $this->__get("preco_custo");
+        $cadProduct["preco_venda"]  = $this->__get("preco_venda");
+        $cadProduct["path_arquivo"] = $this->__get("path_arquivo");
 
-        $this->create->ExeCreate("produtos", $cadPr);
+        $this->create->ExeCreate("produtos", $cadProduct);
         return $this;
     }
 

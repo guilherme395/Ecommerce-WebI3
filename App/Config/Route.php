@@ -59,6 +59,12 @@ class Route extends Bootstrap
             "action" => "productRegistration"
         );
 
+        $routes["productList"] = array(
+            "route" => "/productList",
+            "controller" => "AppController",
+            "action" => "productList"
+        );
+
         $this->setRoutes($routes);
     }
 }

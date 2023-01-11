@@ -29,20 +29,20 @@ class IndexController extends Action
                 $user->saveUser();
                 header("Location: /");
             else :
-                $this->view->usuario = [
+                $this->load->usuario = [
                     "nome" => $_POST["nome"],
                     "senha" => $_POST["senha"]
                 ];
-                $this->view->registeredError = true;
-                $this->render("signUp");
+                $this->load->registeredError = true;
+                $this->render("signUp", "login");
             endif;
         else :
-            $this->view->usuario = [
+            $this->load->usuario = [
                 "nome" => $_POST["nome"],
                 "senha" => $_POST["senha"]
             ];
-            $this->view->registrationError = true;
-            $this->render("signUp");
+            $this->load->registrationError = true;
+            $this->render("signUp", "login");
         endif;
     }
 }

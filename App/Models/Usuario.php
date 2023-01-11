@@ -52,12 +52,7 @@ class Usuario extends Model
 
     public function getUserByNome()
     {
-        $query = "SELECT nome FROM usuarios WHERE nome = :nome";
-
-        $stmt = $this->db->prepare($query);
-        $stmt->bindValue(":nome", $this->__get("nome"));
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $this->read->ExeRead("usuarios", "WHERE nome = :nome;", "nome={$this->__get("nome")}");
+        return $this->read->getResult()[0];
     }
 }

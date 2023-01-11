@@ -1,7 +1,6 @@
-<div style="padding-top: 20px;"></div>
 <div class="row">
-    <?php foreach ($this->view->products as $key => $products) : ?>
-        <div class="col-lg-4 div_space">
+    <?php foreach ($this->load->products as $key => $products) : ?>
+        <div class="col-lg-4 div_space pt-5">
             <div class="card card-margin">
                 <div class="card-header no-border">
                     <h4 class="card-title"><?= $products["produto"] ?></h4>

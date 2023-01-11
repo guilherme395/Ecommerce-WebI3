@@ -10,11 +10,11 @@
                     <b>Inscrever-se</b>
                 </h1>
 
-                <?php if (isset($this->view->registrationError)) : ?>
+                <?php if (isset($this->load->registrationError)) : ?>
                     <small class="form-text text-danger">
                         Erro ao Tentar Realizar o Cadastro!
                     </small>
-                <?php elseif (isset($this->view->registeredError)) : ?>
+                <?php elseif (isset($this->load->registeredError)) : ?>
                     <small class="form-text text-danger">
                         Este Usuario ja Existe!
                     </small>
@@ -22,12 +22,12 @@
 
                 <div class="login__box">
                     <i class='bx bx-user login__icon'></i>
-                    <input type="text" name="nome" placeholder="Nome de Usuario" value="<?= isset($this->view->usuario["nome"]) ?  $this->view->usuario["nome"] : "" ?>" class="login__input">
+                    <input type="text" name="nome" placeholder="Nome de Usuario" value="<?= isset($this->load->usuario["nome"]) ?  $this->load->usuario["nome"] : "" ?>" class="login__input">
                 </div>
 
                 <div class="login__box">
                     <i class='bx bx-lock-alt login__icon'></i>
-                    <input type="password" name="senha" placeholder="Senha do Usuario" value="<?= isset($this->view->usuario["senha"]) ?  $this->view->usuario["senha"] : "" ?>" class="login__input">
+                    <input type="password" name="senha" placeholder="Senha do Usuario" value="<?= isset($this->load->usuario["senha"]) ?  $this->load->usuario["senha"] : "" ?>" class="login__input">
                 </div>
 
                 <br>

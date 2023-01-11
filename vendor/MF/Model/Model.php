@@ -2,11 +2,6 @@
 
 namespace MF\Model;
 
-use MF\Model\Create;
-use MF\Model\Read;
-use MF\Model\Update;
-use MF\Model\Delete;
-
 abstract class Model
 {
     protected $db;
